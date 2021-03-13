@@ -127,3 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+summoners_war_0_1_0/master.db

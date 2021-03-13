@@ -9,5 +9,5 @@ class ModuleSettings:
 
 
     # todo are these still being used?
-    sqlPath = modulePath + "output/sql/"
-    sqlXlsxPath = modulePath + "output/sql_xlsx_results/"
+    #sqlPath = modulePath + "output/sql/"
+    #sqlXlsxPath = modulePath + "output/sql_xlsx_results/"
