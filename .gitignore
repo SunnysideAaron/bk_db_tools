@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 summoners_war_0_1_0/master.db
+summoners_war_0_1_0/input/*.json
