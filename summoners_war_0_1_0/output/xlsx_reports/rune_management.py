@@ -118,7 +118,7 @@ class RuneManagement(XlsxDataReplace):
         },
         {
             'sheetName':'gem_grind',
-            'firstColumn':4,
+            'firstColumn':2,
             'firstRow':5,
             'sql':"""
             select r.rune_id
