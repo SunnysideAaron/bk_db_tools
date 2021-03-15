@@ -70,8 +70,7 @@ group.add_argument(
     '--xlsxdump',
     type=str,
     metavar='TABLE NAME',
-    #nargs=1, #TODO set higher if we want to set an output file by name.
-    help='Export tables or views to an xlsx data dump file. Uses % as wildcard. % for all.')	
+    help='Export tables or views to an xlsx data dump file. Uses %% as wildcard. %% for all.')	
 
 if len(sys.argv)==1:
     parser.print_help(sys.stderr)
