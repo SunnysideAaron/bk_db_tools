@@ -26,7 +26,7 @@ class UnitCombatSpeeds(XlsxDataReplace):
                     else rf.total_spd
                 end) as rune_spd
             from swex_unit_list ul
-            left join swarfarm_monster_names mn on ul.unit_master_id = mn.com2us_id
+            left join swarfarm_monster_names mn on ul.com2us_id = mn.com2us_id
             left join swex_runes_flattened rf on ul.unit_id = rf.occupied_id
             left join s_player_unit pu on ul.unit_id = pu.unit_id
             where ul.unit_level >= 35

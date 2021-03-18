@@ -59,7 +59,7 @@ class SOther(XlsxDataReplace):
                 , mn.full_name || ' lvl ' || ul.unit_level || ' | ' || ul.unit_id as unit_select
                 from s_player_unit pu
                 join swex_unit_list ul on pu.unit_id = ul.unit_id
-                left join swarfarm_monster_names mn on mn.com2us_id = ul.unit_master_id
+                left join swarfarm_monster_names mn on mn.com2us_id = ul.com2us_id
                 union all
                 select ul2.unit_id
                 , mn2.full_name
@@ -109,7 +109,7 @@ class SOther(XlsxDataReplace):
                 , null as runed_as_bruiser
                 , mn2.full_name || ' lvl ' || ul2.unit_level || ' | ' || ul2.unit_id as unit_select
                 from swex_unit_list ul2 
-                left join swarfarm_monster_names mn2 on mn2.com2us_id = ul2.unit_master_id
+                left join swarfarm_monster_names mn2 on mn2.com2us_id = ul2.com2us_id
                 left join s_player_unit pu2 on ul2.unit_id = pu2.unit_id
                 where pu2.unit_id is null
                 and ul2.unit_level >= 35

@@ -21,7 +21,7 @@ from
 from swex_runes sxr
 left join lt_rune_set rs on sxr.set_id = rs.rune_set_id
 left join swex_unit_list ul on sxr.occupied_id = ul.unit_id
-left join swarfarm_monster_names mn on ul.unit_master_id = mn.com2us_id
+left join swarfarm_monster_names mn on ul.com2us_id = mn.com2us_id
 ) as r
 where spd >= 15
 order by r.pieces_required desc

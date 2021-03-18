@@ -136,7 +136,7 @@ class Server:
         left join lt_rune_rarity rr on a.natural_rank = rr.rank
         left join lt_artifact_primary_effect ape on a.pri_effect_id = ape.artifact_primary_effect_id
         left join swex_unit_list ul on a.occupied_id = ul.unit_id
-        left join swarfarm_monster_names mn on ul.unit_master_id = mn.com2us_id
+        left join swarfarm_monster_names mn on ul.com2us_id = mn.com2us_id
         left join swex_artifact_efficiency ae on a.rid = ae.rid
         where a.level >= ?
         and a.level <= ?
@@ -234,7 +234,7 @@ class Server:
         sql = """
         select up.priority
         , ul.unit_id
-        , ul.unit_master_id as com2us_id
+        , ul.com2us_id as com2us_id
         , mn.full_name
         , ul.unit_level
         , s1.description as s1_description
@@ -249,13 +249,13 @@ class Server:
         , ul.artifact_slot_2_rid
         , apu.user_setting as pri_effect_tier
         from swex_unit_list ul
-        join swarfarm_monster_names mn on ul.unit_master_id = mn.com2us_id
+        join swarfarm_monster_names mn on ul.com2us_id = mn.com2us_id
         left join bdt_unit_priority up on ul.unit_id = up.unit_id
         left join swarfarm_skills s1 on ul.skills_1_id = s1.com2us_id
         left join swarfarm_skills s2 on ul.skills_2_id = s2.com2us_id
         left join swarfarm_skills s3 on ul.skills_3_id = s3.com2us_id
         left join swarfarm_skills s4 on ul.skills_4_id = s4.com2us_id
-        left join s_artifact_pri_unit apu on ul.unit_master_id = apu.com2us_id
+        left join s_artifact_pri_unit apu on ul.com2us_id = apu.com2us_id
             and apu.effect = ?
         where unit_level >= 35
         and (mn.element = ?
