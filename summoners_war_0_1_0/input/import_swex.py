@@ -43,7 +43,7 @@ class ImportSwex:
         , pos_x int
         , pos_y int
         , building_id int
-        , unit_master_id int
+        , com2us_id int
         , unit_level int
         , class int
         , con int
@@ -507,7 +507,7 @@ class ImportSwex:
         , pos_x
         , pos_y
         , building_id
-        , unit_master_id
+        , com2us_id
         , unit_level
         , class
         , con
@@ -662,6 +662,7 @@ class ImportSwex:
                 unit['pos_x'],
                 unit['pos_y'],
                 unit['building_id'],
+                #changing unit_master_id to com2us_id to be consistent with other data sources
                 unit['unit_master_id'],
                 unit['unit_level'],
                 unit['class'],

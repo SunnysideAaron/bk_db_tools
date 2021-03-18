@@ -107,7 +107,7 @@ class RuneManagement(XlsxDataReplace):
             , sxul.unit_level
             from swex_runes_flattened sxrf
             left join swex_unit_list as sxul on sxrf.occupied_id = sxul.unit_id
-            left join swarfarm_monster_names as sfmn on sxul.unit_master_id = sfmn.com2us_id
+            left join swarfarm_monster_names as sfmn on sxul.com2us_id = sfmn.com2us_id
             left join lt_rune_set as lrs on sxrf.set_id = lrs.rune_set_id
             left join lt_rune_effect as lre on sxrf.pri_eff_id = lre.rune_effect_id
             left join lt_rune_rarity as lrr on sxrf.extra = lrr.rank
@@ -149,7 +149,7 @@ class RuneManagement(XlsxDataReplace):
             , ul.unit_level
             from swex_runes r 
             left join swex_unit_list as ul on r.occupied_id = ul.unit_id
-            left join swarfarm_monster_names as mn on ul.unit_master_id = mn.com2us_id
+            left join swarfarm_monster_names as mn on ul.com2us_id = mn.com2us_id
             left join lt_rune_set as rs on r.set_id = rs.rune_set_id
             left join lt_rune_effect as re on r.pri_eff_id = re.rune_effect_id
             left join lt_rune_effect as re1 on r.sec_eff_1_id = re1.rune_effect_id

@@ -5,7 +5,7 @@ select sfmn.full_name
 , count(sxr.rune_id) as 'count'
 from swex_runes sxr 
 join swex_unit_list as sxul on sxr.occupied_id = sxul.unit_id
-left join swarfarm_monster_names as sfmn on sxul.unit_master_id = sfmn.com2us_id 
+left join swarfarm_monster_names as sfmn on sxul.com2us_id = sfmn.com2us_id 
 left join lt_rune_set as lrs on sxr.set_id = lrs.rune_set_id
 where sxul.class >= 5
 and sxr.upgrade_curr >= 3

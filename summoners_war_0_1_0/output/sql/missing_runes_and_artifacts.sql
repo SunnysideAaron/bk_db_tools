@@ -25,7 +25,7 @@ select sfmn.full_name
 	WHEN sxul.class = 6 AND sxul.artifact_slot_2_rid = 0 THEN "Missing"
   END AS Artifact2  
 from swex_unit_list as sxul
-left join swarfarm_monster_names sfmn on sxul.unit_master_id = sfmn.com2us_id
+left join swarfarm_monster_names sfmn on sxul.com2us_id = sfmn.com2us_id
 where sxul.class >= 5
 and (sxul.rune_slot_1_id = 0
   or sxul.rune_slot_2_id = 0

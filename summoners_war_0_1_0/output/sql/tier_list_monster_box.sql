@@ -17,9 +17,9 @@ left join (
      from swarfarm_monsters m
      left join swarfarm_monsters m2 on m.awakens_to = m2.id
      left join swarfarm_monsters m3 on m2.awakens_to = m3.id
-     left join swex_unit_list ul on ul.unit_master_id = m.com2us_id
-       or ul.unit_master_id = m2.com2us_id
-       or ul.unit_master_id = m3.com2us_id
+     left join swex_unit_list ul on ul.com2us_id = m.com2us_id
+       or ul.com2us_id = m2.com2us_id
+       or ul.com2us_id = m3.com2us_id
      where m.obtainable = 1
      and m.natural_stars > 1
      and m.awaken_level = 0
