@@ -10,14 +10,17 @@ class UnitCombatSpeeds(XlsxDataReplace):
             select ul.unit_id
             , mn.full_name
             , ul.unit_level
+            , mn.natural_stars
             , pu.use_for_gwo
             , pu.use_for_gwd
             , pu.use_for_rta
             , pu.spd_tune_max
             , pu.spd_tune_atk_bar
             , pu.spd_tune_buffer
+            , pu.buffs
             , pu.spd_tune_strip
             , pu.spd_tune_debuff
+            , pu.debuffs
             , pu.spd_tune_dmg
             , ul.spd as base_spd
             , sum(
@@ -39,8 +42,10 @@ class UnitCombatSpeeds(XlsxDataReplace):
             , pu.spd_tune_max
             , pu.spd_tune_atk_bar
             , pu.spd_tune_buffer
+            , pu.buffs
             , pu.spd_tune_strip
             , pu.spd_tune_debuff
+            , pu.debuffs
             , pu.spd_tune_dmg
             , ul.spd
             order by base_spd + rune_spd desc;

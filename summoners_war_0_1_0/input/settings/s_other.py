@@ -47,12 +47,13 @@ class SOther(XlsxDataReplace):
                 , pu.spd_tune_max
                 , pu.spd_tune_atk_bar
                 , pu.spd_tune_buffer
+                , pu.buffs
                 , pu.spd_tune_strip
                 , pu.spd_tune_debuff
+                , pu.debuffs
                 , pu.spd_tune_dmg
                 , pu.cleanser
                 , pu.reviver
-                , pu.controller
                 , pu.runed_as_healer
                 , pu.runed_as_tank
                 , pu.runed_as_bruiser                
@@ -98,12 +99,13 @@ class SOther(XlsxDataReplace):
                 , null as spd_tune_max
                 , null as spd_tune_atk_bar
                 , null as spd_tune_buffer
+                , null as buffs
                 , null as spd_tune_strip
                 , null as spd_tune_debuff
+                , null as debuffs
                 , null as spd_tune_dmg
                 , null as cleanser
                 , null as reviver
-                , null as controller
                 , null as runed_as_healer
                 , null as runed_as_tank
                 , null as runed_as_bruiser
