@@ -1,4 +1,4 @@
-from summoners_war_0_1_0.module_settings import ModuleSettings
+from bkdt_summoners_war.module_settings import ModuleSettings
 
 class Settings(ModuleSettings):
     """
