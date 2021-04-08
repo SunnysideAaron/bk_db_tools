@@ -1,16 +1,17 @@
 import openpyxl
-from pathlib import Path
-from settings import Settings
-from openpyxl.styles import Alignment, Font
 import sys
-from .database import Database
+from pathlib import Path
+from openpyxl.styles import Alignment, Font
 
 class XlsxDataReplace:
     dataSets = []
-    db = Database()
+
+    def __init__(self, settings, db):
+        self.settings = settings
+        self.db = db
     
     def run_script(self, params):
-        filePath = Path(Settings.modulePath) / params[0]
+        filePath = Path(params[0])
         filePath = filePath.parent / (filePath.stem + '.xlsx')
 
         if not filePath.is_file():

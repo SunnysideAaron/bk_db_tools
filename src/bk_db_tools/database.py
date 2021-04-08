@@ -1,6 +1,5 @@
 import sqlite3
 from pathlib import Path
-from settings import Settings
 
 class Database:
     """
@@ -29,9 +28,10 @@ class Database:
             comments = db.query('SELECT * FROM comments')
             print(comments)
     """
-    
-    def __init__(self):
-        dbPath = Path(Settings.databasePath)
+    def __init__(self, settings):
+        self.settings = settings
+        
+        dbPath = Path(self.settings.databasePath)
         
         self._conn = sqlite3.connect(dbPath)
         self._conn.row_factory = sqlite3.Row
