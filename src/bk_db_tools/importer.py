@@ -1,14 +1,14 @@
 import sys
 from pathlib import Path
-from .database import Database
-from settings import Settings
 
 class Importer: 
-    db = Database()
     extension = ""
     
+    def __init__(self, db):
+        self.db = db
+    
     def do_import(self, params):
-        filePath = Path(Settings.modulePath) / params
+        filePath = Path(params)
         
         if filePath.is_dir():
             # only files of extension.

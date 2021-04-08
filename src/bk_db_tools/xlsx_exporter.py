@@ -2,12 +2,12 @@ import openpyxl
 import sys
 from pathlib import Path
 from openpyxl.styles import Alignment, Font
-from .database import Database
-from settings import Settings
 
 class XlsxExporter: 
-    db = Database()
-    
+    def __init__(self, settings, db):
+        self.settings = settings
+        self.db = db
+        
     def export_tables(self, params):
         sql = """
         SELECT name
@@ -30,7 +30,7 @@ class XlsxExporter:
             sql = f'SELECT * FROM {tableName};'
             rows = self.db.query(sql)
             
-            self.export_rows(Settings.xlsxDataDump, rows, tableName)
+            self.export_rows(self.settings.xlsxDataDump, rows, tableName)
             
             print("Exported " + tableName + " to xlsx data dump file.")
 
