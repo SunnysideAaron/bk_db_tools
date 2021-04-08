@@ -1,12 +1,14 @@
 import sys
 from pathlib import Path
-from .database import Database
-from settings import Settings
-from src import xlsx_exporter
+
+from .xlsx_exporter import XlsxExporter
 
 class SqlFileExecuter: 
-    db = Database()
     outputExtension = ".xlsx"
+    
+    def __init__(self, settings, db):
+        self.settings = settings
+        self.db = db 
     
     def do_executions(self, params):
         """
@@ -16,7 +18,7 @@ class SqlFileExecuter:
         if 1 < len(params) and params[1] == "csv":
             self.outputExtension = ".csv"
         
-        filePath = Path(Settings.modulePath) / params[0]
+        filePath = Path(params[0])
     
         if filePath.is_dir():
             # only files of sql extension.
@@ -51,7 +53,7 @@ class SqlFileExecuter:
             if self.outputExtension == ".xlsx":
                 if needFile:
                     outputPath = filePath.parent / (filePath.stem + '.xlsx')
-                    xlsxExporter = xlsx_exporter.XlsxExporter()
+                    xlsxExporter = XlsxExporter(self.settings, self.db)
                     xlsxExporter.delete_all_sheets(outputPath)
                     needFile = False;
                 
@@ -63,6 +65,6 @@ class SqlFileExecuter:
                 
             if self.outputExtension == ".csv":
                 #TODO
-                print("csv needs to be codded")
+                print("csv needs to be coded")
             
         
