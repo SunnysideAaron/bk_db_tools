@@ -29,6 +29,7 @@ class XlsxImporter(Importer):
                 
             sql = self.insert_table_str(sheetName, columnNames)
             
+            msgcount = 0
             for r in range(2, lastRow):
                 params = []
                 for c in range(1, lastColumn):
@@ -42,3 +43,8 @@ class XlsxImporter(Importer):
                 self.db.execute(sql, params)    
                 
                 self.db.commit()
+                
+                msgcount += 1
+                if msgcount > 500:
+                    print ('inserted ' + str(r) + ' rows into ' + sheetName)
+                    msgcount = 0
