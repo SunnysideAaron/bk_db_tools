@@ -48,6 +48,7 @@ class SqlFileExecuter:
             rows = self.db.query(statement)
             
             if not rows:
+                self.db.commit()
                 continue
             
             if self.outputExtension == ".xlsx":
